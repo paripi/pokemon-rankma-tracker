@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚔️ ポケモン・ログ</title>
+    <link rel="stylesheet" href="style.css"> </head>
+<body>
+    <!--相手の構成-->
+    <div class="enemy-party">
+        <div class="section-title">相手の選出状況</div>
+        <div class="pokemon-grid">
+            <button type="button" id="enemy-1" class="pkmn-status-btn" onclick="handleToggle(0)">イワパレス</button>
+            <button type="button" id="enemy-2" class="pkmn-status-btn" onclick="handleToggle(1)">ルカリオ</button>
+            <button type="button" id="enemy-3" class="pkmn-status-btn" onclick="handleToggle(2)">ギャロップ</button>
+            <button type="button" id="enemy-4" class="pkmn-status-btn" onclick="handleToggle(3)">ギャラドス</button>
+            <button type="button" id="enemy-5" class="pkmn-status-btn" onclick="handleToggle(4)">ウーラオス</button>
+            <button type="button" id="enemy-6" class="pkmn-status-btn" onclick="handleToggle(5)">デカヌチャン</button>        </div>
+    </div>
+    <!--自分の選出-->
+    <div class="my-party">
+        <div class="section-title">自分のポケモン</div>
+        <div class="pokemon-grid">
+            <button type="button" id="my-1" class="pkmn-status-btn" onclick="handleMyToggle(0)">ザシアン</button>
+            <button type="button" id="my-2" class="pkmn-status-btn" onclick="handleMyToggle(1)">黒バドレックス</button>
+            <button type="button" id="my-3" class="pkmn-status-btn" onclick="handleMyToggle(2)">カイリュー</button>
+        </div>
+    </div>
+    <!--操作ログ入力用フォーム-->
+    <div class="form">
+        <div class="turn-display" id="turnLabel">T1 の記録</div>
+        <!--自分の行動（予定）-->
+        <p class="my-action">
+            <div>
+                <label>自分の行動：</label>
+                <label><input type="radio" name="my-action" value="技" checked>技</label>
+                <label><input type="radio" name="my-action" value="交代">交代</label>
+            </div>
+            <div class="move-selector">
+                <div id="moveTitle" style="font-size: 0.8rem; color: #666; margin-bottom: 5px;">技を選択</div>
+                <div id="moveContainer" class="move-grid">
+                    </div>
+                <div id="teraContainer" style="margin-top: 5px;"></div>
+            </div>
+            <input type="text" id="nextNow" readonly>
+        </p>
+        <!--行動順-->
+        <p class="action-order">
+            <label>行動順：</label>
+            <label><input type="radio" name="order" value="自分先制"> 🔵自分</label>
+            <label><input type="radio" name="order" value="相手先制"> 🔴相手</label>
+            <label><input type="radio" name="order" value="-" checked> -</label>
+        </p>
+        <!--相手の行動-->
+        <p class=enemy-action>
+            <div>
+                <label>相手の行動：</label>
+                <label><input type="radio" name="enemy-action" value="技" checked>技</label>
+                <label><input type="radio" name="enemy-action" value="交代">交代</label>
+            </div>
+        </p>
+        <p>
+            <label>その他情報（今後リッチにしていきます）：</label>
+            <input id="otherInfo">
+        </p>
+        <!--送信-->
+        <div>
+            <button id="sendBtn">Notionへ記録！</button>
+            <button class="reset-btn" id="resetBtn">リセット</button>
+        </div>
+    </div>
+    <!--ログ一覧-->
+    <div class="log-container">
+        <div class="section-title">対戦ログ（履歴）</div>
+        <div id="logDisplay" class="log-display">
+            <div class="log-placeholder">記録待ち...</div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

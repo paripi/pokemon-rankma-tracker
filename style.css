@@ -1,0 +1,133 @@
+.pokemon-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-bottom: 15px;
+}
+.move-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.pkmn-status-btn {
+    padding: 10px 5px;
+    border: 1px solid #ccc;
+    background: white;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+/* 状態別のスタイル */
+.pkmn-status-btn.selected { background: #e3f2fd; border-color: #2196f3; font-weight: bold; } /* 選出済み */
+.pkmn-status-btn.now { background: #fff9c4; border-color: #fbc02d; box-shadow: 0 0 5px orange; font-weight: bold; } /* 出撃中 */
+.pkmn-status-btn.fainted { background: #42a5f5; border-color: #2196f3; text-decoration: line-through; font-weight: bold; } /* ひんし */
+.pkmn-status-btn.bench { background: #eeeeee; color: #9e9e9e; } /* 不選出 */
+
+.input-helper {
+    background: #f0f0f0;
+    border: 1px solid #ddd;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.log-container {
+    margin-top: 20px;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.log-display {
+    max-height: 200px; /* 縦に長くなりすぎないように */
+    overflow-y: auto;  /* スクロール可能にする */
+    font-size: 0.85rem;
+    display: flex;
+    flex-direction: column; /* 最新のログを一番上にする */
+}
+
+.log-item {
+    padding: 6px 10px;
+    border-bottom: 1px solid #eee;
+    animation: fadeIn 0.3s ease;
+}
+
+.log-turn { font-weight: bold; color: #2196f3; margin-right: 5px; }
+.log-order { color: #666; font-size: 0.75rem; }
+.log-text { display: block; margin-top: 2px; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/*技*/
+.move-btn {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+.move-btn:active { background-color: #eee; }
+
+.tera-btn {
+    width: 100%;
+    padding: 8px;
+    background: linear-gradient(to right, #f8bbd0, #b2ebf2);
+    border: 1px solid #999;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.tera-btn {
+    width: 100%;
+    padding: 10px;
+    background: #f0f0f0;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+/* テラスタルONの状態 */
+.tera-btn.active {
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4, #a1c4fd, #c2e9fb);
+    border-color: #fff;
+    color: #333;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    animation: glitter 2s infinite alternate;
+}
+
+@keyframes glitter {
+    from { filter: brightness(1); }
+    to { filter: brightness(1.2); }
+}
+
+/* 自分のポケモンのボタン自体にもテラスタル中マークをつける */
+.pkmn-status-btn.tera-active::after {
+    content: "💎";
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    font-size: 1.2rem;
+}
+
+.move-btn.selected-move {
+    background-color: #4A90E2; /* 鮮やかな青 */
+    color: white;
+    border-color: #2A60A2;
+    font-weight: bold;
+}
+
+/* 初期状態で交代が隠れるようにする場合 */
+#nextNow {
+    display: none; 
+}
+
+.move-selector{
+    padding-left: 24px;
+}
