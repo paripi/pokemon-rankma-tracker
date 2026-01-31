@@ -1,0 +1,13 @@
+{
+  "name": "pokemon-rankma-tracker",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node service.js"
+  },
+  "dependencies": {
+    "@notionhq/client": "^2.2.15",
+    "dotenv": "^16.4.7",
+    "express": "^4.18.2",
+    "node-fetch": "^2.7.0"
+  }
+}
