@@ -18,7 +18,7 @@ const pageId = process.env.NOTION_PAGE_ID; // 公開時はサーバーの設定�
 let turnCounter = 1;
 
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(__dirname));
 
 // Notionにデータを飛ばす処理
 app.post('/send', async (req, res) => {
